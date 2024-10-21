@@ -3,23 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interactive Color Box Slider</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Interactive Slider</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        #sliderValue {
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+        input[type="range"] {
+            width: 300px;
+        }
+    </style>
 </head>
 <body>
+    <h1>Test Interactive Slider</h1>
+    <p id="sliderValue">Value: 50</p>
+    <input type="range" id="mySlider" min="0" max="100" value="50">
+    
+    <script>
+        const slider = document.getElementById('mySlider');
+        const sliderValue = document.getElementById('sliderValue');
 
-<div class="container">
-    <div class="box" id="box1"></div>
-    <div class="box" id="box2"></div>
-    <div class="box" id="box3"></div>
-    <div class="box" id="box4"></div>
-</div>
-
-<div class="slider-container">
-    <input type="range" id="colorSlider" min="0" max="100" value="0" step="1">
-</div>
-
-<script src="script.js"></script>
-
+        slider.addEventListener('input', function() {
+            sliderValue.textContent = `Value: ${slider.value}`;
+        });
+    </script>
 </body>
 </html>
